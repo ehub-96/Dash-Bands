@@ -36,7 +36,7 @@ dropdown = dcc.Dropdown(options=['Main Bands', "German Bands", "Swedish Bands",
 #Layout
 
 app.layout = dbc.Container([mytitle, mygraph, dropdown])
-
+server = app.server 
 
 @app.callback(
     Output(mygraph, component_property='figure'),
