@@ -26,6 +26,7 @@ british_bands_by_year = british_bands[["Band Name", "Year Formed"]].sort_values(
 #App
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
+server = app.server 
 mytitle = dcc.Markdown(children="Erik's Metal Bands")
 mygraph = dcc.Graph(figure={})
 dropdown = dcc.Dropdown(options=['Main Bands', "German Bands", "Swedish Bands", 
@@ -36,7 +37,7 @@ dropdown = dcc.Dropdown(options=['Main Bands', "German Bands", "Swedish Bands",
 #Layout
 
 app.layout = dbc.Container([mytitle, mygraph, dropdown])
-server = app.server 
+
 
 @app.callback(
     Output(mygraph, component_property='figure'),
